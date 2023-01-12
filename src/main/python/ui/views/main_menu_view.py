@@ -3,10 +3,7 @@ from ui.views.view import View
 from ui.controller.main_menu_view_controller import MainMenuViewController
 
 class MainMenuView(View):
-    """MainMenuView provides the PySimpleGUI Layout for the Main Menu for this game. Contains the EventLoop for this View
-
-    Args:
-        View (_type_): _description_
+    """MainMenuView provides the PySimpleGUI Layout for the Main Menu for this game.
     """
     def __init__(self) -> None:
         super().__init__()
