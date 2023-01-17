@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from ui.controller.controller import Controller
+from ui.controllers.controller import Controller
 
 class View:
     """ Super class for creating a view with PySimpleGUI.
@@ -18,6 +18,7 @@ class View:
         self.resizable = False
         self._min_width = 0
         self._min_height = 0
+        self.element_padding = None
     
     def create_window(self) -> None:
         """Creates the window specified by the view.
@@ -26,7 +27,7 @@ class View:
         self.window_created = True
         
         title = self.title if len(self.main_title) == 0 else f"{self.main_title}: {self.title}"
-        self.window = sg.Window(title, self.layout, resizable=self.resizable, finalize=True)
+        self.window = sg.Window(title, self.layout, resizable=self.resizable, finalize=True, element_padding=self.element_padding)
     
     def close_window(self) -> None:
         """Closes the window specified by the view.

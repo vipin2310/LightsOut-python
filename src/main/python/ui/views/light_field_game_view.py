@@ -1,7 +1,8 @@
 import PySimpleGUI as sg
 from ui.views.view import View
 from ui.view_manager import ViewManager
-from ui.controller.light_field_game_view_controller import LightFieldGameViewController
+from ui.controllers.light_field_game_view_controller import LightFieldGameViewController
+from ui.components.light_field_button import LightFieldButton
 
 class LightFieldGameView(View):
     """LightFieldGameView provides the PySimpleGUI Layout for the LightField used to play the game by the user.
@@ -12,17 +13,20 @@ class LightFieldGameView(View):
         self.num_rows = 5
         
         super().__init__()
+        
+        self.element_padding = (0, 0)
     
     def _create_layout(self) -> list:
+        distance_to_window_edge = 50
         
         if ViewManager._width < ViewManager._height:
-            length = (ViewManager._width - 50 - ((self.num_cols - 1) * 5)) // self.num_cols
+            length = (ViewManager._width - (2 * distance_to_window_edge) - ((self.num_cols - 1))) // self.num_cols
         else:
-            length = (ViewManager._height - 50 - ((self.num_rows - 1) * 5)) // self.num_rows
+            length = (ViewManager._height - (2 * distance_to_window_edge) - ((self.num_rows - 1))) // self.num_rows
         
         button_size = (length, length)
         
-        columns = [[[sg.Button("", image_data=LightFieldGameViewController.light_off_base64, image_size=button_size, key=(x, y), metadata=False, size=button_size, pad=(0, 0))] for y in range(self.num_rows)] for x in range(self.num_cols)]
+        columns = [[[LightFieldButton(light_on=False, size=button_size, key=(x, y))] for y in range(self.num_rows)] for x in range(self.num_cols)]
         
         layout = [[sg.VPush()],
                   [sg.Push()],

@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 from ui.views.view import View
-from ui.controller.main_menu_view_controller import MainMenuViewController
+from ui.controllers.main_menu_view_controller import MainMenuViewController
 
 class MainMenuView(View):
     """MainMenuView provides the PySimpleGUI Layout for the Main Menu for this game.

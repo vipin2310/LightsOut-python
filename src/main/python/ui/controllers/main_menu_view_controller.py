@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from ui.controller.controller import Controller
+from ui.controllers.controller import Controller
 from ui.view_manager import ViewManager
 from ui.views.light_field_game_view import LightFieldGameView
 
