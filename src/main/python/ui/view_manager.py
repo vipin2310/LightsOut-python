@@ -1,7 +1,8 @@
 from ui.views.view import View
 
 class ViewManager:
-    """Manages the views for the game.
+    """
+    Manages the application window and the views for the game.
     """
     
     # Variables for the ViewManager
@@ -14,12 +15,22 @@ class ViewManager:
     _terminated : bool = False
     
     def set_view(view : View, keep_attributes = True) -> None:
-        """Sets a new view for the application. Closes the previous view. If wanted, the last set attributes will be applied to the next view.
-
-        Args:
-            view (View): The view to be set.
         """
-        
+        Sets a new view for the application. Closes the previous view. If wanted, the last set attributes will be applied to the next view.
+
+        Parameters
+        ----------
+        view : View
+            The next view which will be set for the application window.
+        keep_attributes : bool, optional
+            Keep the attributes like width, height, min_width, min_height for this window, by default True
+
+        Raises
+        ------
+        ValueError
+            If the previous attributes should be used but are not initialized first.
+        """
+                
         if ViewManager._view != None:
             ViewManager._view.close_window()
         
@@ -36,10 +47,18 @@ class ViewManager:
             ViewManager._view.set_min_height(ViewManager._min_height)
         
     def set_width(width : int) -> None:
-        """Sets the current width of the application window.
+        """
+        Sets the current width of the application window.
 
-        Args:
-            width (int): The width of the application window.
+        Parameters
+        ----------
+        width : int
+            The current width of the application window.
+
+        Raises
+        ------
+        ValueError
+            If the view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -48,10 +67,18 @@ class ViewManager:
         ViewManager._view.set_width(width)
     
     def set_height(height : int) -> None:
-        """Sets the current height of the application window.
+        """
+        Sets the current height of the application window.
 
-        Args:
-            height (int): The height of the application window.
+        Parameters
+        ----------
+        height : int
+            The current height for the application window.
+
+        Raises
+        ------
+        ValueError
+            If the view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -60,10 +87,18 @@ class ViewManager:
         ViewManager._view.set_height(height)
     
     def set_min_width(min_width : int) -> None:
-        """Sets the minimum width of the application window.
+        """
+        Sets the minimum width of the application window.
 
-        Args:
-            min_width (int): The minimum width of the application window.
+        Parameters
+        ----------
+        min_width : int
+            The miminum width for the application window.
+
+        Raises
+        ------
+        ValueError
+            If the view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -72,10 +107,18 @@ class ViewManager:
         ViewManager._view.set_min_width(min_width)
     
     def set_min_height(min_height : int) -> None:
-        """Sets the minimum height of the application window.
+        """
+        Sets the minimum height of the application window.
 
-        Args:
-            min_height (int): The minimum height of the application window.
+        Parameters
+        ----------
+        min_height : int
+            The minimum height of the application window.
+
+        Raises
+        ------
+        ValueError
+            If view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -84,10 +127,18 @@ class ViewManager:
         ViewManager._view.set_min_height(min_height)
     
     def set_main_title(main_title : str) -> None:
-        """Sets the title for this application window.
+        """
+        Sets the title for this application window.
 
-        Args:
-            main_title (str): The title for the application window.
+        Parameters
+        ----------
+        main_title : str
+            The main title for the current view.
+
+        Raises
+        ------
+        ValueError
+            If view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -96,7 +147,13 @@ class ViewManager:
         ViewManager._view.set_main_title(main_title)
         
     def start_event_handler() -> None:
-        """Starts the event handling for the current view.
+        """
+        Starts the event handling for the current view.
+
+        Raises
+        ------
+        ValueError
+            If view is not initialized.
         """
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
@@ -104,6 +161,9 @@ class ViewManager:
         ViewManager._view.read_events()
         
     def terminate() -> None:
+        """
+        Terminates the application window and closes the views if not already terminated.
+        """
         if not ViewManager._terminated and ViewManager._view != None:
             ViewManager._terminated = True
             ViewManager._view.close_window()
