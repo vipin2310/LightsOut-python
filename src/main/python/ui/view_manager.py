@@ -45,6 +45,7 @@ class ViewManager:
             ViewManager._view.set_height(ViewManager._height)
             ViewManager._view.set_min_width(ViewManager._min_width)
             ViewManager._view.set_min_height(ViewManager._min_height)
+            ViewManager._view.set_main_title(ViewManager._main_title)
         
     def set_width(width : int) -> None:
         """
