@@ -35,3 +35,6 @@ class LightFieldGameView(View):
     
     def _create_controller(self) -> LightFieldGameViewController:
         return LightFieldGameViewController(self, self._lm_container)
+    
+    def _finalized(self) -> None:
+        self.controller.handle_event("Finalized")

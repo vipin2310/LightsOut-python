@@ -28,6 +28,8 @@ class View:
         
         title = self.title if len(self.main_title) == 0 else f"{self.main_title}: {self.title}"
         self.window = sg.Window(title, self.layout, resizable=self.resizable, finalize=True, element_padding=self.element_padding)
+        
+        self._finalized()
     
     def close_window(self) -> None:
         """Closes the window specified by the view.
@@ -115,4 +117,8 @@ class View:
         Returns:
             str: returns the title as str
         """
+        pass
+    
+    def _finalized(self) -> None:
+        
         pass
