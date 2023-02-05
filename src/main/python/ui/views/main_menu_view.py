@@ -6,6 +6,8 @@ class MainMenuView(View):
     """MainMenuView provides the PySimpleGUI Layout for the Main Menu for this game.
     """
     def __init__(self) -> None:
+        self.row_col_default = 5
+        
         super().__init__()
         
         self.resizable = True
@@ -13,11 +15,17 @@ class MainMenuView(View):
     def _create_layout(self) -> list:
         font_header = ("Helvetica", 60, "bold")
         font_button = ("Helvetica", 15)
-        button_size = (35, 1)
+        button_size = (36, 1)
+        
+        row_col_input_components = [sg.Text("Number of rows and columns: ", font=font_button), 
+                                    sg.Input(self.row_col_default, key="row_col_count", font=font_button, size=(3, 1), enable_events=True), 
+                                    sg.Button("↑", key="num_up", size=(2, 1), font=font_button), 
+                                    sg.Button("↓", key="num_down", size=(2, 1), font=font_button)]
         
         column = [[sg.Text("Lights out", font=font_header, justification="center")],
                   [sg.Text(size=(12,1))],
-                  [sg.Button("Standard mode", font=font_button, size=button_size)], 
+                  row_col_input_components,
+                  [sg.Button("Play", font=font_button, size=button_size)],
                   [sg.Button("Exit", font=font_button, size=button_size)]]
         
         layout = [[sg.VPush()],
@@ -30,6 +38,6 @@ class MainMenuView(View):
         return "Main Menu"
     
     def _create_controller(self) -> MainMenuViewController:
-        return MainMenuViewController(self)
+        return MainMenuViewController(self, self.row_col_default)
             
         

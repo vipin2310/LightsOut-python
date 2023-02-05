@@ -28,7 +28,6 @@ class View:
         
         title = self.title if len(self.main_title) == 0 else f"{self.main_title}: {self.title}"
         self.window = sg.Window(title, self.layout, resizable=self.resizable, finalize=True, element_padding=self.element_padding)
-        
         self._finalized()
     
     def close_window(self) -> None:
@@ -92,7 +91,7 @@ class View:
         """
         
         event, values = self.window.read()
-        self.controller.handle_event(event)
+        self.controller.handle_event(event, values)
         
     def _create_controller(self) -> Controller:
         """Creates the controller for the GUI

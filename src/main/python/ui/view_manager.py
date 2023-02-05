@@ -161,6 +161,20 @@ class ViewManager:
         
         ViewManager._view.read_events()
         
+    def center_view() -> None:
+        """
+        Moves the view to the center of the screen.
+
+        Raises
+        ------
+        ValueError
+            If view is not initialized.
+        """
+        if not ViewManager._view:
+            raise ValueError("The view must be initialized first.")
+        
+        ViewManager._view.window.move_to_center()
+        
     def terminate() -> None:
         """
         Terminates the application window and closes the views if not already terminated.

@@ -8,10 +8,7 @@ class LightFieldGameView(View):
     """LightFieldGameView provides the PySimpleGUI Layout for the LightField used to play the game by the user.
     """
     
-    def __init__(self) -> None:
-        num_cols = 5
-        num_rows = 5
-        
+    def __init__(self, num_cols : int, num_rows : int) -> None:       
         distance_to_window_edge = 50
         if ViewManager._width < ViewManager._height:
             length = (ViewManager._width - (2 * distance_to_window_edge) - ((num_cols - 1))) // num_cols
@@ -23,9 +20,13 @@ class LightFieldGameView(View):
         
         super().__init__()
     
-    def _create_layout(self) -> list:        
+    def _create_layout(self) -> list:
+        font = ("Helvetica", 12)
+        font_moves = ("Helvetica", 14, "bold")
         layout = [[sg.VPush()],
+                  [sg.Push(), sg.Text("Moves: XX", key="MOVE_COUNT_TEXT", pad=(1,10), font=font_moves), sg.Push()],
                   [sg.Push()] + self._lm_container.get_layout_for_view() + [sg.Push()],
+                  [sg.Push(), sg.Button("Back to menu", pad=(2,10), font=font), sg.Button("Reset", pad=(2,10), font=font), sg.Push()],
                   [sg.VPush()]]
         
         return layout
@@ -37,4 +38,4 @@ class LightFieldGameView(View):
         return LightFieldGameViewController(self, self._lm_container)
     
     def _finalized(self) -> None:
-        self.controller.handle_event("Finalized")
+        self.controller.handle_event("Finalized", None)
