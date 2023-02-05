@@ -24,9 +24,9 @@ class LightFieldGameView(View):
         font = ("Helvetica", 12)
         font_moves = ("Helvetica", 14, "bold")
         layout = [[sg.VPush()],
-                  [sg.Push(), sg.Text("Moves: XX", key="MOVE_COUNT_TEXT", pad=(1,10), font=font_moves), sg.Push()],
+                  [sg.Push(), sg.Text("Moves: XX", key="MOVE_COUNT_TEXT", pad=(1,15), font=font_moves), sg.Push()],
                   [sg.Push()] + self._lm_container.get_layout_for_view() + [sg.Push()],
-                  [sg.Push(), sg.Button("Back to menu", pad=(2,10), font=font), sg.Button("Reset", pad=(2,10), font=font), sg.Push()],
+                  [sg.Push(), sg.Button("Back to menu", pad=(5,15), font=font), sg.Button("Reset", pad=(5,15), font=font), sg.Push()],
                   [sg.VPush()]]
         
         return layout
