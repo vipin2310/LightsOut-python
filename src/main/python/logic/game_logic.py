@@ -1,18 +1,35 @@
 from ui.models.light_model_container import LightModelContainer
 from random import randint
-import numpy as np
 
 class GameLogic:
-    
+    """
+    Implementing the logic for the game, such as creating a start problem or iterating after one click.
+    """
     start_problem = None
         
     def set_new_start_problem(field : LightModelContainer) -> None:
+        """
+        Sets a new start problem in the LightModelContainer to be solved by the player.
+
+        Parameters
+        ----------
+        field : LightModelContainer
+            The container containing the LightModels that represent the state of the displayed grid.
+        """
         
         # Use prime number as iterations to prevent all lights out already
         GameLogic.start_problem = list(map(lambda i : (randint(0, field._num_cols - 1), randint(0, field._num_rows - 1)), range(47)))
         list(map(lambda position : GameLogic.iterate(field, position), GameLogic.start_problem))
     
     def reset_start_problem(field : LightModelContainer) -> None:
+        """
+        Resets the grid to the last setted start problem.
+
+        Parameters
+        ----------
+        field : LightModelContainer
+            The container which the start problem should be applied to.
+        """
         
         if GameLogic.start_problem != None:
             light_on_lm = list(filter(lambda lm : lm.get_light_on(), field._light_models.flatten().tolist()))
@@ -25,6 +42,16 @@ class GameLogic:
             
     
     def iterate(field : LightModelContainer, position : tuple[int, int]) -> None:
+        """
+        Iterates on the LightModelContainer after one position is selected by the player.
+
+        Parameters
+        ----------
+        field : LightModelContainer
+            The container which the logic should be applied to.
+        position : tuple[int, int]
+            The position which will be used to iterate / toggle.
+        """
         field.get_light_model(position).toggle_light_on()    
         neighbors = field.get_neighbors(position)
     
@@ -32,5 +59,18 @@ class GameLogic:
         neighbors[:] = map(lambda lm : lm.toggle_light_on() if lm != None else lm, neighbors)
     
     def is_field_solved(field : LightModelContainer) -> bool:
+        """
+        Checks if the field is already solved according to the game logic.
+
+        Parameters
+        ----------
+        field : LightModelContainer
+            The field which contains the LightModels that represent the current state of the grid.
+
+        Returns
+        -------
+        bool
+            True if solved, else False.
+        """
         light_on_lm = list(filter(lambda lm : lm.get_light_on(), field._light_models.flatten().tolist()))
         return len(light_on_lm) == 0

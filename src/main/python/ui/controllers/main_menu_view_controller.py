@@ -6,7 +6,18 @@ from ui.views.light_field_game_view import LightFieldGameView
 class MainMenuViewController(Controller):
     """Implements the controller for the MainMenuView.
     """
+    
     def __init__(self, view, row_col_default : int):
+        """
+        Creates an instance of a controller for the MainMenuView.
+
+        Parameters
+        ----------
+        view : View
+            The MainMenuView which will be controlled (according to MVC).
+        row_col_default : int
+            The default value for the rows and columns in the grid, which can be edited by the user.
+        """
         self.row_col_key = "row_col_count"      
         self.saved_values = {self.row_col_key : row_col_default}
         
@@ -14,6 +25,7 @@ class MainMenuViewController(Controller):
         super().__init__(view)
     
     def handle_event(self, event : str, values : dict) -> None:
+        # For docstring see super class
         
         if event == "Exit" or event == sg.WIN_CLOSED:
             ViewManager.terminate()
@@ -49,11 +61,34 @@ class MainMenuViewController(Controller):
             ViewManager.start_event_handler()
     
     def update_row_col_count(self, row_col_count : int) -> None:
+        """
+        Updates the row / column count value in the MainMenuView with a valid value (between 1 and 20).
+
+        Parameters
+        ----------
+        row_col_count : int
+            The value which should be set.
+            (Will be checked if valid and if not, a valid value will be used instead)
+        """
+        
         valid_value = min(max(1, row_col_count), 20)
         self.saved_values[self.row_col_key] = valid_value
         self.view.window[self.row_col_key].update(valid_value)
     
     def is_int(self, arg) -> bool:
+        """
+        Checks if the argument is an integer or not.
+
+        Parameters
+        ----------
+        arg : Any
+            The argument which will be checked if it is integer
+
+        Returns
+        -------
+        bool
+            True if it is integer, else false.
+        """
         try: 
             int(arg)
         except ValueError:
