@@ -3,16 +3,21 @@ from ui.views.view import View
 from ui.controllers.main_menu_view_controller import MainMenuViewController
 
 class MainMenuView(View):
-    """MainMenuView provides the PySimpleGUI Layout for the Main Menu for this game.
+    """MainMenuView provides the functionality to customize the LightField grid and start the game from when player is ready.
     """
     def __init__(self) -> None:
+        """
+        Creates an instance of this class. It makes the view resizable.
+        """
+        
         self.row_col_default = 5
         
         super().__init__()
-        
         self.resizable = True
     
     def _create_layout(self) -> list:
+        # Docstring see super class
+        
         font_header = ("Helvetica", 60, "bold")
         font_button = ("Helvetica", 15)
         button_size = (36, 1)
@@ -35,9 +40,13 @@ class MainMenuView(View):
         return layout
     
     def _create_title(self) -> str:
+        # Docstring see super class
+        
         return "Main Menu"
     
     def _create_controller(self) -> MainMenuViewController:
+        # Docstring see super class
+        
         return MainMenuViewController(self, self.row_col_default)
             
         

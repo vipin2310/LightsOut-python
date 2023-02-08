@@ -16,19 +16,19 @@ class ViewManager:
     
     def set_view(view : View, keep_attributes = True) -> None:
         """
-        Sets a new view for the application. Closes the previous view. If wanted, the last set attributes will be applied to the next view.
+        Sets a new view for the application. Closes the previous view. Per default the last set attributes will be applied to the next view.
 
         Parameters
         ----------
         view : View
-            The next view which will be set for the application window.
+            The next view which will be set in the application window.
         keep_attributes : bool, optional
-            Keep the attributes like width, height, min_width, min_height for this window, by default True
+            Keep the attributes width, height, min_width, min_height and main_title for the window, by default True
 
         Raises
         ------
         ValueError
-            If the previous attributes should be used but are not initialized first.
+            If the previous attributes should be applied but are not initialized first.
         """
                 
         if ViewManager._view != None:
@@ -61,6 +61,7 @@ class ViewManager:
         ValueError
             If the view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -81,6 +82,7 @@ class ViewManager:
         ValueError
             If the view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -101,6 +103,7 @@ class ViewManager:
         ValueError
             If the view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -121,6 +124,7 @@ class ViewManager:
         ValueError
             If view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -141,6 +145,7 @@ class ViewManager:
         ValueError
             If view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -156,6 +161,7 @@ class ViewManager:
         ValueError
             If view is not initialized.
         """
+        
         if not ViewManager._view:
             raise ValueError("The view must be initialized first.")
         
@@ -177,7 +183,7 @@ class ViewManager:
         
     def terminate() -> None:
         """
-        Terminates the application window and closes the views if not already terminated.
+        Terminates the application window and closes the view if not already terminated.
         """
         if not ViewManager._terminated and ViewManager._view != None:
             ViewManager._terminated = True
