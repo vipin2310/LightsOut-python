@@ -14,6 +14,9 @@ class ViewManager:
     _main_title : str = ""
     _terminated : bool = False
     
+    _view_init_err_str = "The view must be initialized first."
+    
+    @staticmethod
     def set_view(view : View, keep_attributes = True) -> None:
         """
         Sets a new view for the application. Closes the previous view. Per default the last set attributes will be applied to the next view.
@@ -46,7 +49,8 @@ class ViewManager:
             ViewManager._view.set_min_width(ViewManager._min_width)
             ViewManager._view.set_min_height(ViewManager._min_height)
             ViewManager._view.set_main_title(ViewManager._main_title)
-        
+    
+    @staticmethod
     def set_width(width : int) -> None:
         """
         Sets the current width of the application window.
@@ -63,11 +67,12 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._width = width
         ViewManager._view.set_width(width)
     
+    @staticmethod
     def set_height(height : int) -> None:
         """
         Sets the current height of the application window.
@@ -84,11 +89,12 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._height = height
         ViewManager._view.set_height(height)
     
+    @staticmethod
     def set_min_width(min_width : int) -> None:
         """
         Sets the minimum width of the application window.
@@ -105,11 +111,12 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._min_width = min_width
         ViewManager._view.set_min_width(min_width)
     
+    @staticmethod
     def set_min_height(min_height : int) -> None:
         """
         Sets the minimum height of the application window.
@@ -126,11 +133,12 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._min_height = min_height
         ViewManager._view.set_min_height(min_height)
     
+    @staticmethod
     def set_main_title(main_title : str) -> None:
         """
         Sets the title for this application window.
@@ -147,11 +155,12 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._main_title = main_title
         ViewManager._view.set_main_title(main_title)
-        
+    
+    @staticmethod
     def start_event_handler() -> None:
         """
         Starts the event handling for the current view.
@@ -163,10 +172,11 @@ class ViewManager:
         """
         
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._view.read_events()
-        
+    
+    @staticmethod
     def center_view() -> None:
         """
         Moves the view to the center of the screen.
@@ -177,10 +187,11 @@ class ViewManager:
             If view is not initialized.
         """
         if not ViewManager._view:
-            raise ValueError("The view must be initialized first.")
+            raise ValueError(ViewManager._view_init_err_str)
         
         ViewManager._view.window.move_to_center()
-        
+    
+    @staticmethod
     def terminate() -> None:
         """
         Terminates the application window and closes the view if not already terminated.

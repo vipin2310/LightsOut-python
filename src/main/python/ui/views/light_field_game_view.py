@@ -46,9 +46,9 @@ class LightFieldGameView(View):
         """
         
         if ViewManager._width < ViewManager._height:
-            length = (ViewManager._width - (2 * distance_to_window_edge) - ((num_cols - 1))) // num_cols
+            length = (ViewManager._width - (2 * distance_to_window_edge) - (num_cols - 1)) // num_cols
         else:
-            length = (ViewManager._height - (2 * distance_to_window_edge) - ((num_rows - 1))) // num_rows
+            length = (ViewManager._height - (2 * distance_to_window_edge) - (num_rows - 1)) // num_rows
         button_size = (length, length)
         
         return button_size

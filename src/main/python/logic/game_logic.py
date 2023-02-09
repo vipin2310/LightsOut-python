@@ -6,7 +6,8 @@ class GameLogic:
     Implementing the logic for the game, such as creating a start problem or iterating after one click.
     """
     start_problem = None
-        
+    
+    @staticmethod
     def set_new_start_problem(field : LightModelContainer) -> None:
         """
         Sets a new start problem in the LightModelContainer to be solved by the player.
@@ -21,6 +22,7 @@ class GameLogic:
         GameLogic.start_problem = list(map(lambda i : (randint(0, field._num_cols - 1), randint(0, field._num_rows - 1)), range(47)))
         list(map(lambda position : GameLogic.iterate(field, position), GameLogic.start_problem))
     
+    @staticmethod
     def reset_start_problem(field : LightModelContainer) -> None:
         """
         Resets the grid to the last setted start problem.
@@ -40,7 +42,7 @@ class GameLogic:
             # Reapply start problem iteration
             list(map(lambda position : GameLogic.iterate(field, position), GameLogic.start_problem))
             
-    
+    @staticmethod
     def iterate(field : LightModelContainer, position : tuple[int, int]) -> None:
         """
         Iterates on the LightModelContainer after one position is selected by the player.
@@ -58,6 +60,7 @@ class GameLogic:
         # Using map function to replace for-loop
         neighbors[:] = map(lambda lm : lm.toggle_light_on() if lm != None else lm, neighbors)
     
+    @staticmethod
     def is_field_solved(field : LightModelContainer) -> bool:
         """
         Checks if the field is already solved according to the game logic.

@@ -55,7 +55,20 @@ class LightFieldButton(sg.Button):
         
         button_image = self._get_sized_button_image()
         self.update(image_data = button_image)
-        
+    
+    def _get_sized_button_image(self) -> None:
+        """
+        Gets the updated image for this button according to this instances properties.
+
+        Returns
+        -------
+        bytes
+            The image according to the attributes.
+        """
+        image = LightFieldButton.light_on_base64 if self.get_light_on() else LightFieldButton.light_off_base64
+        return LightFieldButton.resize_base64_image(image, self._size)
+    
+    @staticmethod
     def resize_base64_image(image64 : bytes, size : tuple[int, int]) -> bytes:
         """
         Helper method to resize a base64 encoded image to a specific size.
@@ -80,15 +93,3 @@ class LightFieldButton(sg.Button):
         img.save(bio, format='PNG')
         imgbytes = bio.getvalue()
         return imgbytes
-    
-    def _get_sized_button_image(self) -> None:
-        """
-        Gets the updated image for this button according to this instances properties.
-
-        Returns
-        -------
-        bytes
-            The image according to the attributes.
-        """
-        image = LightFieldButton.light_on_base64 if self.get_light_on() else LightFieldButton.light_off_base64
-        return LightFieldButton.resize_base64_image(image, self._size)
