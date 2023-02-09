@@ -21,4 +21,5 @@ def set_properties(project):
     project.build_depends_on("tk-tools")
     project.build_depends_on("tk")
     project.build_depends_on("PySimpleGUI")
+    project.build_depends_on("pillow") # PIL (Python imaging library)
     project.build_depends_on("numpy")
