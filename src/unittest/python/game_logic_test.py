@@ -1,5 +1,4 @@
 import unittest
-import copy
 from logic.game_logic import GameLogic
 from ui.models.light_model_container import LightModelContainer
 
@@ -29,21 +28,22 @@ class GameLogicTest(unittest.TestCase):
         self.assertFalse(all_lights_off)
         
     def test_reset_start_problem(self):
-        field = LightModelContainer(button_size=(1, 1), num_rows=5, num_cols=5)
-        fieldDeepCopy = copy.deepcopy(field)
+        field1 = LightModelContainer(button_size=(1, 1), num_rows=5, num_cols=5)
+        field2 = LightModelContainer(button_size=(1, 1), num_rows=5, num_cols=5)
         
-        # Set a start problem
-        GameLogic.set_new_start_problem(field)
+        # Set a start problem to field1
+        GameLogic.set_new_start_problem(field1)
         
-        # Reset the deep copy to this start problem
-        GameLogic.reset_start_problem(fieldDeepCopy)
+        # Reset the start problem to field2
+        GameLogic.reset_start_problem(field2)
         
+        # Are the light_on states in field1 and field2 equal?
         allEqual = True
         for y in range(5):
             for x in range(5):
                 position = (x, y)
-                lm1 = field.get_light_model(position)
-                lm2 = fieldDeepCopy.get_light_model(position)
+                lm1 = field1.get_light_model(position)
+                lm2 = field2.get_light_model(position)
                 
                 if lm1._light_on != lm2._light_on:
                     allEqual = False
