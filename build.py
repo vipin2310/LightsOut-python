@@ -15,9 +15,10 @@ default_task = ["install_dependencies","publish"]
 
 @init
 def set_properties(project):
-    project.set_property('coverage_break_build', False)
+    project.set_property("coverage_break_build", False)
+    project.set_property("unittest_module_glob", "*_test")
     
     project.build_depends_on("tk-tools")
     project.build_depends_on("tk")
     project.build_depends_on("PySimpleGUI")
-    project.build_depens_on("numpy")
+    project.build_depends_on("numpy")
