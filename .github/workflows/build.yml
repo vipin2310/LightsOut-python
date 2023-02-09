@@ -18,3 +18,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  pybuild:
+    name: PyBuilder
+    runs-on: ubuntu-latest
+    steps:
+      - name: PyBuilder Action
+        uses: pybuilder/build@v8

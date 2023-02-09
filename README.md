@@ -32,7 +32,13 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 - PyBuilder
 
 ## 7. Unit-Tests
-- TODO
+The unit-tests are implemented using the unit testing framework of the Python Standard Library "[unittest](https://docs.python.org/3/library/unittest.html)". The unit tests ensure that the logic of the program stays the same throughout further development.
+
+- [Click here to get to the directory where the unittests are located.](https://github.com/vipin2310/LightsOut-python/tree/develop/src/unittest/python)
+- 4 Unittests for the game logic: &rarr; [click here](https://github.com/vipin2310/LightsOut-python/blob/develop/src/unittest/python/game_logic_test.py)
+- 2 Unittests for the object containing the state of the play field &rarr; [click here](https://github.com/vipin2310/LightsOut-python/blob/develop/src/unittest/python/light_model_container_test.py)
+
+For the UI itself there are no unit-tests implemented since most of the functions don't return a type that can be easily compared to a correct state. Nevertheless the UI is tested manually by hand to ensure that the components and the game interactions work as intended.
 
 ## 8. Continuous Delivery
 GitHub Actions:
