@@ -39,9 +39,7 @@ class LightModel:
             The next light_on state for this button.
         """
         self._light_on = light_on
-        
-        for listener in self._listeners:
-            listener.light_model_changed()
+        self._notify_listeners()
     
     def get_light_on(self) -> bool:
         """
@@ -52,7 +50,6 @@ class LightModel:
         bool
             True if light is on, else False.
         """
-        
         return self._light_on
     
     def toggle_light_on(self) -> None:
@@ -61,3 +58,10 @@ class LightModel:
         Triggers the changed event of the listeners.
         """
         self.set_light_on(not self._light_on)
+        
+    def _notify_listeners(self) -> None:
+        """
+        Notifies the listeners of this model that it got changed.
+        """
+        for listener in self._listeners:
+            listener.light_model_changed()

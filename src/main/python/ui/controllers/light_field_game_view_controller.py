@@ -40,7 +40,7 @@ class LightFieldGameViewController(Controller):
             self.update_move_count_text()
             self.view.read_events()
         elif event == "Back to menu":
-            self.show_main_menu()
+            self._show_main_menu()
         elif type(event) == tuple:
             
             if type(self.view.window[event]) == LightFieldButton:
@@ -72,7 +72,7 @@ class LightFieldGameViewController(Controller):
         if popup_event == "Exit" or popup_event == sg.WIN_CLOSED:
             ViewManager.terminate()
         else:
-            self.show_main_menu()
+            self._show_main_menu()
     
     def update_move_count_text(self) -> None:
         """
@@ -81,7 +81,7 @@ class LightFieldGameViewController(Controller):
         
         self.view.window["MOVE_COUNT_TEXT"].update(f"Moves: {self.move_count}")
         
-    def show_main_menu(self):
+    def _show_main_menu(self):
         """
         Function that returns to the main menu.
         """
