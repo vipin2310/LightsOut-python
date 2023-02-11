@@ -4,20 +4,19 @@ $p = &{python -V} 2>&1
 if($p -is [System.Management.Automation.ErrorRecord])
 {
     # Python is not installed or correctly configured
-    
-    Write-Host "Python is not installed or correctly configured. Therefore the program could not be started. `n`n
-    Please visit https://www.python.org/downloads/ to install the latest version of Python and try again.`n"
+    Write-Host "Python is not installed or correctly configured. Therefore the program could not be started. `n`nPlease visit https://www.python.org/downloads/ to install the latest version of Python and try again.`n"
 }
 else
 {
     $version = $p -replace "Python "
     $pyVersion = [version] $version
+    $requiredVersion = '3.9'
 
-    # Is Pyversion lower than 3.10 ?
-    if($pyVersion -lt '3.10')
+    # Is Python version lower than 3.9 ?
+    if($pyVersion -lt $requiredVersion)
     {
         # Python version may not be sufficient to run the game
-        Write-Host "Python found on your machine but version $pyversion is lower than 3.10.`nPlease visit https://www.python.org/downloads/ to install the latest version of Python and try again.`n"
+        Write-Host "Python found on your machine but version $pyversion is lower than $requiredVersion.`n`nPlease visit https://www.python.org/downloads/ to install the latest version of Python and try again.`n"
     }
     else
     {
@@ -39,19 +38,20 @@ else
             if(![System.IO.File]::Exists($mainPyPath))
             {
                 # file with path $path doesn't exist
-                Write-Host "Couldn't find main.py as an entrypoint in the project.`nMake sure this script is running from the correct path (In the root directory of the project) and try again."
+                Write-Host "Couldn't find main.py as an entrypoint in the project.`nMake sure this script is running from the correct path (root directory of the project) and try again."
             }
             else
             {
                 # Installing Pybuilder
                 Write-Host "Pybuilder will be installed.`n"
+                
+                # Setup virtual environment for Pybuilder
+                python -m venv venv
+                source venv/bin/activate
                 pip install pybuilder
-
-
-                # Installing Pybuilder
-                Write-Host "`nRun Pybuilder to install all remaining dependencies and unit tests.`n"
-
+                
                 # Run Pybuilder for required dependencies and Unit tests
+                Write-Host "`nRun Pybuilder to install all remaining dependencies and unit tests.`n"   
                 pyb
 
                 # Ask before starting
@@ -64,4 +64,4 @@ else
     }    
 }
 
-Read-Host -Prompt "`nPress ENTER to exit"
+Read-Host -Prompt "Press ENTER to exit"
