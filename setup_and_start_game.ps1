@@ -55,7 +55,7 @@ else
                 pyb
 
                 # Ask before starting
-                Read-Host -Prompt "`nEverything is correctly configured and the game is ready to start. Press ENTER to start the game."
+                Read-Host -Prompt "`nEverything is correctly configured and the game is ready to start.`nPress ENTER to start the game"
 
                 # Run Python script
                 python $mainPyPath
@@ -64,3 +64,4 @@ else
     }    
 }
 
+Read-Host -Prompt "`nPress ENTER to exit"
