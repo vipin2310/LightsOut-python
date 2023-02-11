@@ -48,7 +48,37 @@ GitHub Actions:
 Visual Studio Code
 
 ## 10. Domain-specific language (DSL)
-- TODO
+For domain-specific language there is a script implemented for [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) which setups the project and starts the game.
+To setup it will be checked whether the Python version is at least 3.9 and PIP is available. Therefore to run the script Python 3.9 must be installed and the [path variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables) for Python and PIP must be configured correctly under Microsoft Windows so the script can call Python and PIP from the terminal.
+After checking for the entry point of this project, PyBuilder will be installed through PIP and the build process will be started which then installs all necessary dependencies for the game and executes the unit tests as configured in [setup.py](https://github.com/vipin2310/LightsOut-python/blob/main/setup.py) and [build.py](https://github.com/vipin2310/LightsOut-python/blob/main/build.py).
+At the end the [main.py](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/main.py) file will be called which starts the game.
+
+To start the script you can right-click on the file `setup_and_start_game.ps1` in the projext path and choose the option `Run with PowerShell` in the context menu.
+
+Unfortunately due to some edge cases with the Python installation the script must run with admin privileges to bypass the issue. This might lead to an `UnauthorizedAccess` error. To resolve this follow  point 1 under known issues below.
+
+- [Click here to get to the Powershell script.](https://github.com/vipin2310/LightsOut-python/blob/main/setup_and_start_game.ps1)
+
+### Known Issues
+There are certain issues that can be encountered when executing the script.
+
+1. Since the script requires admin privileges the default Windows Execution Policy will block the PS-script. To solve this issue you must set the Execution Policy to Unrestricted using this command in Powershell:
+
+    ```
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+    ```
+
+    To reset the ExecutionPolicy to default after you are finished you can use:
+
+    ```
+    Set-ExecutionPolicy -ExecutionPolicy Default
+    ```
+
+2. If you get the error message that the term `pyb` is not recognized it is most likely because of a previous corrupt installation of PyBuilder. To resolve this issue a reinstallation of PyBuilder might do the trick:
+
+    ```
+    pip install --force-reinstall pybuilder
+    ```
 
 ## 11. Functional Programming
 - TODO
