@@ -21,7 +21,6 @@ class MainMenuViewController(Controller):
         self.row_col_key = "row_col_count"      
         self.saved_values = {self.row_col_key : row_col_default}
         
-        
         super().__init__(view)
     
     def handle_event(self, event : str, values : dict) -> None:
