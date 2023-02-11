@@ -7,19 +7,20 @@ Project for advanced software engineering which implements the game "Lights Out"
 
 ## 2. Unified Modeling Language (UML) 
 As UML diagrams the following were chosen:
-- [Class diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/class%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/class%20diagram/UML_class_diagram.drawio.png)
-- [Package diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/package%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/package%20diagram/UML_package_diagram.png)
-- [Use case diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/use%20case%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.png)
+- [Class diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/class%20diagram) &rarr; Go to [PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/class%20diagram/UML_class_diagram.drawio.png) or [PDF](https://github.com/vipin2310/LightsOut-python/blob/main/docs/class%20diagram/UML_class_diagram.drawio.pdf)
+- [Package diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/package%20diagram) &rarr; Go to [PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/package%20diagram/UML_package_diagram.png) or [PDF](https://github.com/vipin2310/LightsOut-python/blob/main/docs/package%20diagram/UML_package_diagram.pdf)
+- [Use case diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/use%20case%20diagram) &rarr; Go to [PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.png) or [PDF](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.pdf)
 
 The tool [draw.io (now diagrams.net)](https://www.diagrams.net) was used to create these.
 The class diagram represents the relationship between the classes in the project.
-For the package diagram and the use case diagram the project was pumped up artificially as if the 10 million $ funds of Edlich-Investment were used.
+For the package diagram and the use case diagram the project was pumped up artificially as if the funds of Edlich-Investment were used.
 
 ## 3. Domain Driven Design (DDD)
-- TODO
+A [Miro](https://miro.com)-Board was used for Event storming, creating a Core Domain Chart and indicating the relationship between the domains to apply the Domain Driven Design in this project.
+- [See the PDF-file for the Event storming and Domain modeling](https://github.com/vipin2310/LightsOut-python/blob/main/docs/domain%20driven%20design.pdf)
 
 ## 4. Metrices
-The metrices will be calculated after push to the main branch by SonarCloud. Therefore the metrices are always up-to date with the code from the main branch.
+The metrices will be calculated by [SonarCloud](https://sonarcloud.io) after every push to the main branch in GitHub. Therefore the metrices are always up-to date with the code from the main branch.
 
 Sonarcloud scans all the code located in [/src/main/python/](https://github.com/vipin2310/LightsOut-python/tree/main/src/main/python)
 
@@ -36,7 +37,11 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 - TODO
 
 ## 6. Build Management
-- PyBuilder
+[PyBuilder](https://pybuilder.io) is used as the build automation/management tool for this project.
+The project file structure was created according to PyBuilder's ecosystem.
+With this tool the command `pyb` can be executed on this project, which automatically installs all dependencies and runs the unit-tests.
+
+To analyze the behaviour of PyBuilder you can have a look in [build.py](https://github.com/vipin2310/LightsOut-python/blob/main/build.py).
 
 ## 7. Unit-Tests
 The unit-tests are implemented using the unit testing framework of the Python Standard Library "[unittest](https://docs.python.org/3/library/unittest.html)". The unit tests ensure that the logic of the program stays the same throughout further development.
