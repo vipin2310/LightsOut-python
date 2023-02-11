@@ -8,7 +8,7 @@ Project for advanced software engineering which implements the game "Lights Out"
 ## 2. Unified Modeling Language (UML) 
 - TODO
 
-## 3. Design Driven Development (DDD)
+## 3. Domain Driven Design (DDD)
 - TODO
 
 ## 4. Metrices
