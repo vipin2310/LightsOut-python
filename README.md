@@ -45,7 +45,15 @@ GitHub Actions:
 - [build.yml](https://github.com/vipin2310/LightsOut-python/blob/main/.github/workflows/build.yml)
 
 ## 9. IDE
-Visual Studio Code
+- Visual Studio Code
+
+Favourite key shortcuts:
+- Show/Hide Primary Side Bar (e. g. Project explorer): `Ctrl` + `B`
+- Show/Hide Lower Panel (e. g. Terminal): `Ctrl` + `J`
+- Refactor code: `Ctrl` + `Shift` + `R`
+- Debug project: `F5`
+- Open command pallete: `Ctrl` + `Shift` + `P`
+- Rename variable/function/etc.: `F2`
 
 ## 10. Domain-specific language (DSL)
 For domain-specific language there is a script implemented for [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) which setups the project and starts the game.
@@ -53,7 +61,7 @@ To setup it will be checked whether the Python version is at least 3.9 and PIP i
 After checking for the entry point of this project, PyBuilder will be installed through PIP and the build process will be started which then installs all necessary dependencies for the game and executes the unit tests as configured in [setup.py](https://github.com/vipin2310/LightsOut-python/blob/main/setup.py) and [build.py](https://github.com/vipin2310/LightsOut-python/blob/main/build.py).
 At the end the [main.py](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/main.py) file will be called which starts the game.
 
-To start the script you can right-click on the file `setup_and_start_game.ps1` in the projext path and choose the option `Run with PowerShell` in the context menu.
+To start the script you can right-click on the file `setup_and_start_game.ps1` in the project path and choose the option `Run with PowerShell` in the context menu.
 
 Unfortunately due to some edge cases with the Python installation the script must run with admin privileges to bypass the issue. This might lead to an `UnauthorizedAccess` error. To resolve this follow  point 1 under known issues below.
 
