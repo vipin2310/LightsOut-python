@@ -6,7 +6,14 @@ Project for advanced software engineering which implements the game "Lights Out"
 - [Git commits](https://github.com/vipin2310/LightsOut-python/commits)
 
 ## 2. Unified Modeling Language (UML) 
-- TODO
+As UML diagrams the following were chosen:
+- [Class diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/class%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/class%20diagram/UML_class_diagram.drawio.png)
+- [Package diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/package%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/package%20diagram/UML_package_diagram.png)
+- [Use case diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/use%20case%20diagram) &rarr; [Go to PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.png)
+
+The tool [draw.io (now diagrams.net)](https://www.diagrams.net) was used to create these.
+The class diagram represents the relationship between the classes in the project.
+For the package diagram and the use case diagram the project was pumped up artificially as if the 10 million $ funds of Edlich-Investment were used.
 
 ## 3. Domain Driven Design (DDD)
 - TODO
