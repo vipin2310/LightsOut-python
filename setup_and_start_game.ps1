@@ -1,10 +1,12 @@
 ﻿param([switch]$Elevated)
- 
+
+# Tests if the Powershell window is executed in admin mode
 function Test-Admin {
     $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
     $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 }
- 
+
+# Start script in Powershell in admin mode
 if ((Test-Admin) -eq $false)  {
     if ($elevated) {
         # tried to elevate, did not work, aborting
@@ -25,13 +27,11 @@ If ($ENV:PROCESSOR_ARCHITEW6432 -eq "AMD64") {
     Exit
 }
  
-# Save the current location and switch to this script's directory.
-# Note: This shouldn't fail; if it did, it would indicate a
-# serious system-wide problem.
- 
+# Save the current location and switch to this script's directory 
 $prevPwd = $PWD; Set-Location -ErrorAction Stop -LiteralPath $PSScriptRoot
- 
-try 
+
+# Setup and Start the Game
+try
 {
     # Check Python
     $p = &{python -V} 2>&1
@@ -86,7 +86,7 @@ try
                     pyb
 
                     # Ask before starting
-                    Read-Host -Prompt "`nEverything is correctly configured and the game is ready to start.`nPress ENTER to start the game"
+                    Write-Host -Prompt "`nEverything is correctly configured and the game is ready to start."
 
                     # Run Python script
                     python $mainPyPath
