@@ -1,7 +1,16 @@
 # LightsOut-python
-Project for advanced software engineering which implements the game "Lights Out" in Python.
+Project for advanced software engineering which implements the game "Lights Out" in Python. In the game thee player is supposed to click on the lights and switch all of them off by clicking on it.
+The difficulty is that each light is connected to its neighbors and switches them on/off as well.
+This results in an interesting riddle to solve random generated problems in a grid with the least amount of moves possible.
+
+This game requires you to install and configure [Python](https://www.python.org) (at least version 3.9) and PIP.
+To start the game you can download the project with all files and execute the Powershell script which should setup the environment and start the game (see more under [10. Domain-specific language (DSL)](https://github.com/vipin2310/LightsOut-python#10-domain-specific-language-dsl))
+
+As an alternative you can start the project by executing the [main.py](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/main.py) file as entry point (after installing all dependencies).
+The dependencies can be installed automatically by executing [PyBuilders](https://pybuilder.io) `pyb.exe`. (see more under [6. Build Management](https://github.com/vipin2310/LightsOut-python#6-build-management))
 
 ## 1. Git
+The whole project is under version control using Git.
 - [Git branches](https://github.com/vipin2310/LightsOut-python/branches)
 - [Git commits](https://github.com/vipin2310/LightsOut-python/commits)
 
