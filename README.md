@@ -142,4 +142,9 @@ There are certain issues that can be encountered when executing the script.
     ```
 
 ## 11. Functional Programming
-- TODO
+The aspects of Functional Programming are covered in this project. Click the aspects to get to the examples.
+
+- Only final data structures
+- (Mostly) Side effect free functions
+- Use of higher-order functions / Functions as parameters and return values
+- Use closures / anonymous functions
