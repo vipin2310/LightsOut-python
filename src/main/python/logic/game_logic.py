@@ -19,7 +19,8 @@ class GameLogic:
         """
         
         # Use prime number as iterations to prevent all lights out already
-        GameLogic.start_problem = list(map(lambda i : (randint(0, field._num_cols - 1), randint(0, field._num_rows - 1)), range(47)))
+        prime_number_iter = 47
+        GameLogic.start_problem = list(map(lambda i : (randint(0, field._num_cols - 1), randint(0, field._num_rows - 1)), range(prime_number_iter)))
         list(map(lambda position : GameLogic.iterate(field, position), GameLogic.start_problem))
     
     @staticmethod
