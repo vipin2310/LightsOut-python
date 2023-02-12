@@ -64,8 +64,14 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 
     &rarr; [Example 2: Expose return value in name](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model_container.py#L34)
 
+- Use of docstrings
+
+    &rarr; [Example: ViewManager class](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py)
+
+    &rarr; And many more, look through the project
+
 ### Part B: CCD cheat sheet
-- TODO
+- [Go to my personal Clean Code Development Cheat Sheet with 10 principles.](github.com/vipin2310/LightsOut-python/tree/main/docs/clean%20code/CCD_CheatSheet.pdf)
 
 ## 6. Build Management
 [PyBuilder](https://pybuilder.io) is used as the build automation/management tool for this project.
