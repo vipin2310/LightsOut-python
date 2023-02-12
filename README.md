@@ -90,8 +90,12 @@ The unit-tests are implemented using the unit testing framework of the Python St
 For the UI itself there are no unit-tests implemented since most of the functions don't return a type that can be easily compared to a correct state. Nevertheless the UI is tested manually by hand to ensure that the components and the game interactions work as intended.
 
 ## 8. Continuous Delivery
-GitHub Actions:
-- [build.yml](https://github.com/vipin2310/LightsOut-python/blob/main/.github/workflows/build.yml)
+In this project GitHub Actions is used to establish a CI/CD pipeline.
+In the pipeline 2 jobs are being executed.
+The first job is the SonarCloud analysis (see [4. Metrices](https://github.com/vipin2310/LightsOut-python#4-metrices)) which updates the metrics for the source code in the main branch.
+The second job calls PyBuilder which installs the dependencies and runs the unit-tests.
+After completion of the pipeline SonarCloud and PyBuilder report a successful or failed result which will be shown next to the commit in the history.
+- Go to the pipeline: [build.yml](https://github.com/vipin2310/LightsOut-python/blob/main/.github/workflows/build.yml)
 
 ## 9. IDE
 For this project [Visual Studio Code](https://code.visualstudio.com) was used as primary IDE.
