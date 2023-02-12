@@ -47,21 +47,21 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 ### Part A: CCD used in this project
 - Don't repeat yourself (DRY) 
 
-    &rarr; [Example 1: Use of constant to store repeating value](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L17)
+    &rarr; [Example 1: Use of constant to store repeating value](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/view_manager.py#L17)
 
-    &rarr; [Example 2: Use of function to prevent repeating expression](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/controllers/light_field_game_view_controller.py#L77)
+    &rarr; [Example 2: Use of function to prevent repeating expression](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/controllers/light_field_game_view_controller.py#L77-L82)
 
 - Single level of abstraction 
 
-    &rarr; [Example 1: GameLogic.iterate()](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L46)
+    &rarr; [Example 1: GameLogic.iterate()](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/logic/game_logic.py#L46-L62)
 
-    &rarr; [Example 2: LightFieldButton._get_sized_button_image()](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/components/light_field_button.py#L59)
+    &rarr; [Example 2: LightFieldButton._get_sized_button_image()](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/components/light_field_button.py#L59-L69)
 
 - Usage of common design patterns &rarr;
 
     &rarr; Example 1: Model-View-Controller (MVC): [Model](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model.py), [View](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/views/light_field_game_view.py), [Controller](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/controllers/light_field_game_view_controller.py)
 
-    &rarr; Example 2: Observer-Pattern: [Observer](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/components/light_field_button.py), [Observable](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model.py)
+    &rarr; Example 2: Observer-Pattern: [Observer](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/components/light_field_button.py#L50-L57), [Observable](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/models/light_model.py#L62-L67)
 
 - Separation of concerns 
 
@@ -69,9 +69,9 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 
 - Small functions with descriptive names 
 
-    &rarr; [Example 1: Method with boolean return type, prefix is](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L64)
+    &rarr; [Example 1: Method with boolean return type, prefix is](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/logic/game_logic.py#L64-L80)
 
-    &rarr; [Example 2: Expose return value in name](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model_container.py#L34)
+    &rarr; [Example 2: Expose return value in name](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/models/light_model_container.py#L34)
 
 - Use of docstrings
 
@@ -153,18 +153,18 @@ There are certain issues that can be encountered when executing the script.
 ## 11. Functional Programming
 The aspects of Functional Programming are covered in this project. Click the aspects to see to the examples.
 
-- [Only final data structures](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L8)
+- [Only final data structures](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/view_manager.py#L8-L15)
 
     The data for this project is stored in primitive data types such as boolean, integer, etc. and are therefore final.
 
-- [(Mostly) Side effect free functions](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L76)
+- [(Mostly) Side effect free functions](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/ui/view_manager.py#L75-L95)
 
     Most of the functions have no side effect and only fulfill one specific task which is visible in their name.
 
-- [Use of higher-order functions / Functions as parameters and return values](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L62)
+- [Use of higher-order functions / Functions as parameters and return values](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/logic/game_logic.py#L62)
 
     Instead of for-loops there are many examples where the map-function is used in combination with an anonymous function as a parameter.
 
-- [Use closures / anonymous functions](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L79)
+- [Use closures / anonymous functions](https://github.com/vipin2310/LightsOut-python/blob/c3dad9263ec32bdaebcb4c455da8a8fd52331b32/src/main/python/logic/game_logic.py#L79)
 
-    Anonymous functions / Lambdas are used mostly in map-functions to replace for-loops.
+    Anonymous functions / Lambdas are used mostly in map/filter-functions to replace for-loops.
