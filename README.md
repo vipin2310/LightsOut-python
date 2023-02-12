@@ -142,9 +142,20 @@ There are certain issues that can be encountered when executing the script.
     ```
 
 ## 11. Functional Programming
-The aspects of Functional Programming are covered in this project. Click the aspects to get to the examples.
+The aspects of Functional Programming are covered in this project. Click the aspects to see to the examples.
 
-- Only final data structures
-- (Mostly) Side effect free functions
-- Use of higher-order functions / Functions as parameters and return values
-- Use closures / anonymous functions
+- [Only final data structures](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L8)
+
+    The data for this project is stored in primitive data types such as boolean, integer, etc. and are therefore final.
+
+- [(Mostly) Side effect free functions](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L76)
+
+    Most of the functions have no side effect and only fulfill one specific task which is visible in their name.
+
+- [Use of higher-order functions / Functions as parameters and return values](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L62)
+
+    Instead of for-loops there are many examples where the map-function is used in combination with an anonymous function as a parameter.
+
+- [Use closures / anonymous functions](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L79)
+
+    Anonymous functions / Lambdas are used mostly in map-functions to replace for-loops.
