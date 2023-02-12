@@ -34,6 +34,37 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=vipin2310_LightsOut-python)](https://sonarcloud.io/summary/new_code?id=vipin2310_LightsOut-python)
 
 ## 5. Clean Code Development
+
+### Part A: CCD used in this project
+- Don't repeat yourself (DRY) 
+
+    &rarr; [Example 1: Use of constant to store repeating value](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/view_manager.py#L17)
+
+    &rarr; [Example 2: Use of function to prevent repeating expression](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/controllers/light_field_game_view_controller.py#L77)
+
+- Single level of abstraction 
+
+    &rarr; [Example 1: GameLogic.iterate()](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L46)
+
+    &rarr; [Example 2: LightFieldButton._get_sized_button_image()](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/components/light_field_button.py#L59)
+
+- Usage of common design patterns &rarr;
+
+    &rarr; Example 1: Model-View-Controller (MVC): [Model](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model.py), [View](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/views/light_field_game_view.py), [Controller](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/controllers/light_field_game_view_controller.py)
+
+    &rarr; Example 2: Observer-Pattern: [Observer](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/components/light_field_button.py), [Observable](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model.py)
+
+- Separation of concerns 
+
+    &rarr; Example: Package structure: [logic](https://github.com/vipin2310/LightsOut-python/tree/main/src/main/python/logic), [ui](https://github.com/vipin2310/LightsOut-python/tree/main/src/main/python/ui)
+
+- Small functions with descriptive names 
+
+    &rarr; [Example 1: Method with boolean return type, prefix is](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/logic/game_logic.py#L64)
+
+    &rarr; [Example 2: Expose return value in name](github.com/vipin2310/LightsOut-python/blob/main/src/main/python/ui/models/light_model_container.py#L34)
+
+### Part B: CCD cheat sheet
 - TODO
 
 ## 6. Build Management
@@ -57,7 +88,7 @@ GitHub Actions:
 - [build.yml](https://github.com/vipin2310/LightsOut-python/blob/main/.github/workflows/build.yml)
 
 ## 9. IDE
-- Visual Studio Code
+For this project [Visual Studio Code](https://code.visualstudio.com) was used as primary IDE.
 
 Favourite key shortcuts:
 - Show/Hide Primary Side Bar (e. g. Project explorer): `Ctrl` + `B`
@@ -68,7 +99,7 @@ Favourite key shortcuts:
 - Rename variable/function/etc.: `F2`
 
 ## 10. Domain-specific language (DSL)
-For domain-specific language there is a script implemented for [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) which setups the project and starts the game.
+For domain-specific language there is a script implemented for [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) which setups this project and starts the game.
 To setup it will be checked whether the Python version is at least 3.9 and PIP is available. Therefore to run the script Python 3.9 must be installed and the [path variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables) for Python and PIP must be configured correctly under Microsoft Windows so the script can call Python and PIP from the terminal.
 After checking for the entry point of this project, PyBuilder will be installed through PIP and the build process will be started which then installs all necessary dependencies for the game and executes the unit tests as configured in [setup.py](https://github.com/vipin2310/LightsOut-python/blob/main/setup.py) and [build.py](https://github.com/vipin2310/LightsOut-python/blob/main/build.py).
 At the end the [main.py](https://github.com/vipin2310/LightsOut-python/blob/main/src/main/python/main.py) file will be called which starts the game.
@@ -94,7 +125,7 @@ There are certain issues that can be encountered when executing the script.
     Set-ExecutionPolicy -ExecutionPolicy Default
     ```
 
-2. If you get the error message that the term `pyb` is not recognized it is most likely because of a previous corrupt installation of PyBuilder. To resolve this issue a reinstallation of PyBuilder might do the trick:
+2. If you get the error message that the term `pyb` is not recognized it is most likely because of a previous corrupt installation of PyBuilder. To resolve this issue a reinstallation of PyBuilder might do the trick. To be on the safe side you can run this command in a terminal with admin privileges:
 
     ```
     pip install --force-reinstall pybuilder
