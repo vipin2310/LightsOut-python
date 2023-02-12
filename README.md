@@ -71,7 +71,7 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
     &rarr; And many more, look through the project
 
 ### Part B: CCD cheat sheet
-- [Go to my personal Clean Code Development Cheat Sheet with 10 principles.](github.com/vipin2310/LightsOut-python/tree/main/docs/clean%20code/CCD_CheatSheet.pdf)
+- [Go to my personal Clean Code Development Cheat Sheet with 10 principles.](https://github.com/vipin2310/LightsOut-python/blob/main/docs/clean%20code/CCD_CheatSheet.pdf)
 
 ## 6. Build Management
 [PyBuilder](https://pybuilder.io) is used as the build automation/management tool for this project.
