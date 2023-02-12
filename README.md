@@ -1,5 +1,5 @@
 # LightsOut-python
-Project for advanced software engineering which implements the game "Lights Out" in Python. In the game thee player is supposed to click on the lights and switch all of them off by clicking on it.
+Project for advanced software engineering which implements the game "Lights Out" in Python. In the game the player is supposed to click on the lights and switch all of them off by clicking on it.
 The difficulty is that each light is connected to its neighbors and switches them on/off as well.
 This results in an interesting riddle to solve random generated problems in a grid with the least amount of moves possible.
 
@@ -21,11 +21,11 @@ As UML diagrams the following were chosen:
 - [Use case diagram](https://github.com/vipin2310/LightsOut-python/tree/main/docs/use%20case%20diagram) &rarr; Go to [PNG](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.png) or [PDF](https://github.com/vipin2310/LightsOut-python/blob/main/docs/use%20case%20diagram/UML_use%20case%20diagram.pdf)
 
 The tool [draw.io (now diagrams.net)](https://www.diagrams.net) was used to create these.
-The class diagram represents the relationship between the classes in the project.
+The class diagram represents the relationship between the classes in this project (as they are).
 For the package diagram and the use case diagram the project was pumped up artificially as if the funds of Edlich-Investment were used.
 
 ## 3. Domain Driven Design (DDD)
-A [Miro](https://miro.com)-Board was used for Event storming, creating a Core Domain Chart and indicating the relationship between the domains to apply the Domain Driven Design in this project.
+A [Miro](https://miro.com)-Board was used for Event storming, creating the Core Domain Chart and indicating the relationship between the domains to apply Domain Driven Design in this project.
 - [See the PDF-file for the Event storming and Domain modeling](https://github.com/vipin2310/LightsOut-python/blob/main/docs/domain%20driven%20design.pdf)
 
 ## 4. Metrices
@@ -86,6 +86,16 @@ Sonarcloud scans all the code located in [/src/main/python/](https://github.com/
 [PyBuilder](https://pybuilder.io) is used as the build automation/management tool for this project.
 The project file structure was created according to PyBuilder's ecosystem.
 With this tool the command `pyb` can be executed on this project, which automatically installs all dependencies and runs the unit-tests.
+To use the `pyb` command in a shell, PyBuilder must be installed correctly into your Python installation.
+To install PyBuilder simply run:
+
+```
+pip install pybuilder
+```
+
+Please keep in mind that if your Python installation is located in an admin-only-write directory such as the root directory, you need to run this command with admin privileges in order to use `pyb`.
+PIP will not tell you whether `pyb` is working or not.
+If you encounter problems using `pyb` reinstall Pybuilder using admin privileges.
 
 To analyze the behaviour of PyBuilder you can have a look in [build.py](https://github.com/vipin2310/LightsOut-python/blob/main/build.py).
 
@@ -103,7 +113,7 @@ In this project GitHub Actions is used to establish a CI/CD pipeline.
 In the pipeline 2 jobs are being executed.
 The first job is the SonarCloud analysis (see [4. Metrices](https://github.com/vipin2310/LightsOut-python#4-metrices)) which updates the metrics for the source code in the main branch.
 The second job calls PyBuilder which installs the dependencies and runs the unit-tests.
-After completion of the pipeline SonarCloud and PyBuilder report a successful or failed result which will be shown next to the commit in the history.
+After completion of the pipeline SonarCloud and PyBuilder report if the check succeeded or failed which will be shown next to the commit in the history.
 - Go to the pipeline: [build.yml](https://github.com/vipin2310/LightsOut-python/blob/main/.github/workflows/build.yml)
 
 ## 9. IDE
